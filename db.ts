@@ -26,24 +26,24 @@ export const chats = [
     id: "1",
     name: "roby mis",
     picture: "https://randomuser.me/api/portraits/thumb/men/1.jpg",
-    lastMessage: messages.find((m) => m.id === "1"),
+    messages: ["1"],
   },
   {
     id: "2",
     name: "david mis",
     picture: "https://randomuser.me/api/portraits/thumb/men/2.jpg",
-    lastMessage: messages.find((m) => m.id === "2"),
+    messages: ["2"],
   },
   {
     id: "3",
     name: "fani mis",
     picture: "https://randomuser.me/api/portraits/thumb/women/1.jpg",
-    lastMessage: messages.find((m) => m.id === "3"),
+    messages: ["3"],
   },
   {
     id: "4",
     name: "hendry mis",
     picture: "https://randomuser.me/api/portraits/thumb/men/3.jpg",
-    lastMessage: messages.find((m) => m.id === "4"),
+    messages: ["4"],
   },
 ];
