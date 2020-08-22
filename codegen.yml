@@ -6,7 +6,9 @@ generates:
       - typescript
       - typescript-resolvers
     config:
+      contextType: ../context#MyContext
       mappers:
+        User: ../db#User
         Message: ../db#Message
         Chat: ../db#Chat
       scalars:

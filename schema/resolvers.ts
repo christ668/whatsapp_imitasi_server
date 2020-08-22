@@ -27,7 +27,7 @@ const resolvers: Resolvers = {
   },
 
   Mutation: {
-    addMessage(root, { chatId, content }) {
+    addMessage(root, { chatId, content }, { pubsub }) {
       const chatIndex = chats.findIndex((c) => c.id === chatId);
 
       if (chatIndex === -1) return null;
@@ -46,11 +46,20 @@ const resolvers: Resolvers = {
 
       messages.push(message);
       chat.messages.push(messageId);
-      // The chat will appear at the top of the ChatsList component
       chats.splice(chatIndex, 1);
       chats.unshift(chat);
 
+      pubsub.publish("messageAdded", {
+        messageAdded: message,
+      });
+
       return message;
+    },
+  },
+  Subscription: {
+    messageAdded: {
+      subscribe: (root, args, { pubsub }) =>
+        pubsub.asyncIterator("messageAdded"),
     },
   },
 };

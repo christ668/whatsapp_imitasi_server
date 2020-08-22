@@ -3,8 +3,9 @@ import express from "express"; // buat listen server
 import cors from "cors"; // biar bisa cross request antara port yang berbeda
 
 // graphql
-import { ApolloServer, gql } from "apollo-server-express"; // server untuk graphql
+import { ApolloServer, gql, PubSub } from "apollo-server-express"; // server untuk graphql
 import schema from "./schema";
+import http from "http";
 
 const app = express();
 
@@ -17,15 +18,22 @@ app.use(express.json());
 // });
 
 //graphql server
-const server = new ApolloServer({ schema });
+const pubsub = new PubSub();
+const server = new ApolloServer({
+  schema,
+  context: () => ({ pubsub }),
+});
 
 server.applyMiddleware({
   app,
   path: "/graphql",
 });
 
+const httpServer = http.createServer(app);
+server.installSubscriptionHandlers(httpServer);
+
 const port = process.env.PORT || 4000;
 
-app.listen(port, () => {
+httpServer.listen(port, () => {
   console.log(`server running di port ${port}`);
 });
