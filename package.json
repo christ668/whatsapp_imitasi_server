@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "scripts": 
+  "scripts": {
     "start": "ts-node index.ts",
     "codegen": "graphql-codegen"
   },
