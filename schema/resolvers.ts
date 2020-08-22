@@ -6,6 +6,14 @@ const resolvers: Resolvers = {
   Date: DateTimeResolver,
   URL: URLResolver,
 
+  Message: {
+    chat(message) {
+      return (
+        chats.find((c) => c.messages.some((m) => m === message.id)) || null
+      );
+    },
+  },
+
   Chat: {
     messages(chat) {
       return messages.filter((m) => chat.messages.includes(m.id));

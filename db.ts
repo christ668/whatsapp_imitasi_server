@@ -110,26 +110,26 @@ export const resetDb = () => {
     ...[
       {
         id: "1",
-        name: "roby mis",
+        name: "christ",
         picture: "https://randomuser.me/api/portraits/thumb/men/1.jpg",
         messages: ["1"],
       },
       {
         id: "2",
-        name: "david mis",
+        name: "hendry",
         picture: "https://randomuser.me/api/portraits/thumb/men/2.jpg",
         messages: ["2"],
       },
       {
         id: "3",
-        name: "fani mis",
+        name: "odi",
         picture: "https://randomuser.me/api/portraits/thumb/women/1.jpg",
         messages: ["3"],
       },
       {
         id: "4",
-        name: "hendry mis",
-        picture: "https://randomuser.me/api/portraits/thumb/men/3.jpg",
+        name: "Joshua",
+        picture: "https://randomuser.me/api/portraits/thumb/women/2.jpg",
         messages: ["4"],
       },
     ]
