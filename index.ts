@@ -22,11 +22,13 @@ const pubsub = new PubSub();
 const server = new ApolloServer({
   schema,
   context: () => ({ pubsub }),
+  introspection: true,
+  playground: true,
 });
 
 server.applyMiddleware({
   app,
-  path: "/",
+  path: "/graphql",
 });
 
 const httpServer = http.createServer(app);
